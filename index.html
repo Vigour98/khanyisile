@@ -27,8 +27,8 @@
             z-index: 2;
         }
         .hero-logo {
-            width: 120px;
-            height: 120px;
+            width: 60px;
+            height: 60px;
             margin-bottom: 18px;
             margin-top: 40px;
             background: rgba(255,255,255,0.15);
@@ -92,7 +92,7 @@
         .navbar-logo {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 8px;
             text-decoration: none;
             color: #fff;
             font-weight: 600;
@@ -100,12 +100,12 @@
             transition: all 0.3s ease;
         }
         .navbar-logo img {
-            width: 120px;
-            height: 120px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             object-fit: cover;
-            border-radius: 24px;
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .navbar-logo:hover img {
             transform: scale(1.05);
@@ -236,11 +236,11 @@
         }
         @media (max-width: 480px) {
             .navbar-logo {
-                gap: 8px;
+                gap: 4px;
             }
             .navbar-logo img {
-                width: 80px;
-                height: 80px;
+                width: 40px;
+                height: 40px;
             }
             .navbar-logo span {
                 font-size: 0.95rem;
@@ -1243,8 +1243,7 @@
         <div class="navbar-logo">
             <img src="logo.jpg" alt="Logo">
             <div>
-                <span>KHANYISILE</span>
-                <span>Automotive parts</span>
+                <span>KHANYISILE</span>              
             </div>
         </div>
         <div class="navbar-toggle" id="navbar-toggle">
