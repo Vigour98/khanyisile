@@ -81,7 +81,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 24px #00336633;
-            min-height: 70px;
+            min-height: 90px;
             transition: all 0.3s ease;
         }
         .navbar.scrolled {
@@ -92,30 +92,42 @@
         .navbar-logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 24px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.2rem;
             transition: all 0.3s ease;
         }
-        .navbar-logo:hover {
-            transform: scale(1.05);
-        }
         .navbar-logo img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 2px solid rgba(255,255,255,0.2);
-            box-shadow: 0 2px 12px #00336655;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
             transition: all 0.3s ease;
         }
         .navbar-logo:hover img {
-            border-color: rgba(255,255,255,0.4);
-            box-shadow: 0 4px 16px #00336677;
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
         }
         .navbar-logo span {
+            font-size: 2.2rem;
+            font-weight: 700;
             color: #fff;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            text-shadow: 0 2px 8px #00336699;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .navbar-logo div {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .navbar-logo div span:last-child {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            opacity: 0.9;
         }
         .navbar-menu {
             display: flex;
@@ -227,8 +239,8 @@
                 font-size: 1.2rem;
             }
             .navbar-logo img {
-                width: 40px;
-                height: 40px;
+                width: 80px;
+                height: 80px;
             }
             .navbar {
                 min-height: 60px;
@@ -1227,7 +1239,10 @@
     <nav class="navbar">
         <div class="navbar-logo">
             <img src="logo.jpg" alt="Logo">
+            <div>
             <span>KHANYISILE</span>
+                <span>Automotive parts</span>
+            </div>
         </div>
         <div class="navbar-toggle" id="navbar-toggle">
             <span></span>
@@ -1237,7 +1252,7 @@
         <div class="navbar-menu" id="navbar-menu">
             <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#products">Products</a>           
+            <a href="#products">Products</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -1282,11 +1297,11 @@
             <div class="product-card">
                 <img src="petro_injectors.jpeg" alt="Petrol Injector">
                 <span>Petrol Injectors</span>
-            </div>
+        </div>
             <div class="product-card">
                 <img src="coil_packs.jpeg" alt="Coil Pack">
                 <span>Coil Packs</span>
-            </div>
+    </div>
             <div class="product-card">
                 <img src="fuel_pump.jpeg" alt="Fuel Pump Housing">
                 <span>Fuel Pump Housing</span>
