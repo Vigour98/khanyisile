@@ -111,6 +111,27 @@
             transform: scale(1.05);
             box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
         }
+        .navbar-logo div {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+            margin-left: 4px;
+        }
+        .navbar-logo div span:first-child {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-family: 'Orbitron', sans-serif;
+        }
+        .navbar-logo div span:last-child {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
         .navbar-logo span {
             font-size: 2.2rem;
             font-weight: 700;
@@ -242,8 +263,8 @@
                 width: 40px;
                 height: 40px;
             }
-            .navbar-logo span {
-                font-size: 0.95rem;
+            .navbar-logo div span:first-child {
+                font-size: 1.4rem;
             }
             .navbar-logo div span:last-child {
                 font-size: 0.75rem;
@@ -1243,7 +1264,8 @@
         <div class="navbar-logo">
             <img src="logo.jpg" alt="Logo">
             <div>
-                <span>KHANYISILE</span>              
+                <span>KHANYISILE</span> 
+                <span>AUTOMOTIVE PARTS</span>            
             </div>
         </div>
         <div class="navbar-toggle" id="navbar-toggle">
@@ -1353,7 +1375,7 @@
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-content">
-                    <p>"Fast delivery and genuine parts every time. They've helped us maintain our reputation for quality service."</p>
+                    <p>"Durable and Genuine parts every time. They've helped us maintain our reputation for quality service up to now."</p>
                 </div>
                 <div class="testimonial-author">
                     <div class="author-name">Amisha P. Sibanda</div>
@@ -1392,15 +1414,7 @@
                     Yes, you can order parts both online through our website or by phone. For phone orders, you can reach us at +263 784 634 432. We also accept walk-in customers at our physical location.
                 </div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question">
-                    How long does delivery take?
-                    <span class="faq-icon">+</span>
-                </button>
-                <div class="faq-answer">
-                    For in-stock items, we typically process orders within 24 hours. Local delivery within Bulawayo takes 1-2 business days. For other locations in Zimbabwe, delivery takes 2-5 business days depending on the destination.
-                </div>
-            </div>
+           
             <div class="faq-item">
                 <button class="faq-question">
                     Do you provide technical support?
