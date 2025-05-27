@@ -347,17 +347,54 @@
             border: 1px solid rgba(0,51,102,0.08);
             position: relative;
             overflow: hidden;
+            perspective: 1000px;
         }
-        .product-card::before {
-            content: '';
+        .product-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            min-height: 240px;
+        }
+        .product-card-front, .product-card-back {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #003366, #1a237e);
-            opacity: 0;
-            transition: all 0.3s ease;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .product-card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #003366 0%, #1a237e 100%);
+            border-radius: 12px;
+        }
+        .product-info {
+            color: #fff;
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+        .product-info h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .product-info p {
+            margin: 0;
+            max-width: 90%;
         }
         .product-card:hover {
             transform: translateY(-8px);
@@ -366,6 +403,62 @@
         }
         .product-card:hover::before {
             opacity: 1;
+        }
+        .product-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .product-card:hover .product-card-inner {
+            transform: rotateY(180deg);
+        }
+        .product-card-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-image-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        .product-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px #00336622;
+            background: #e3eaf2;
+            border: 1px solid rgba(0,51,102,0.1);
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        .product-image.active {
+            opacity: 1;
+        }
+        .product-card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #003366 0%, #1a237e 100%);
+            border-radius: 12px;
+            padding: 20px;
+            color: #fff;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
         .product-card img {
             width: 150px;
@@ -376,7 +469,6 @@
             margin-bottom: 20px;
             background: #e3eaf2;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0,51,102,0.1);
         }
         .product-card:hover img {
             transform: scale(1.05);
@@ -1324,36 +1416,140 @@
         <div class="section-title">Our Product Range</div>
         <div class="products-grid">
             <div class="product-card">
-                <img src="petro_injectors.jpeg" alt="Petrol Injector">
-                <span>Petrol Injectors</span>
-        </div>
-            <div class="product-card">
-                <img src="coil_packs.jpeg" alt="Coil Pack">
-                <span>Coil Packs</span>
-    </div>
-            <div class="product-card">
-                <img src="fuel_pump.jpeg" alt="Fuel Pump Housing">
-                <span>Fuel Pump Housing</span>
+                <div class="product-card-inner">
+                    <div class="product-card-front">
+                        <div class="product-image-container">
+                            <img src="petrol_injectors.jpeg" alt="Petrol Injector" class="product-image active" data-alt="petro_injectors2.jpeg">
+                            <img src="petrol_injectors2.jpg" alt="Petrol Injector" class="product-image" data-alt="petro_injectors.jpeg">
+                        </div>
+                        <span>Petrol Injectors</span>
+                    </div>
+                    <div class="product-card-back">
+                        <div class="product-info">
+                            <h3>Petrol Injectors</h3>
+                            <p>High-performance fuel injectors for optimal engine performance. Compatible with various vehicle models.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
-                <img src="sensors.png" alt="Sensor">
-                <span>Sensors</span>
+                <div class="product-card-inner">
+                    <div class="product-card-front">
+                        <div class="product-image-container">
+                            <img src="coil_packs.jpeg" alt="Coil Pack" class="product-image active" data-alt="coil_packs2.jpeg">
+                            <img src="coil_packs2.jpg" alt="Coil Pack" class="product-image" data-alt="coil_packs.jpeg">
+                        </div>
+                        <span>Coil Packs</span>
+                    </div>
+                    <div class="product-card-back">
+                        <div class="product-info">
+                            <h3>Coil Packs</h3>
+                            <p>Premium ignition coils for reliable spark delivery. Ensures smooth engine operation and better fuel efficiency.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
-                <img src="ignition.jpeg" alt="Ignition Module">
-                <span>Ignition Modules</span>
+                <div class="product-card-inner">
+                    <div class="product-card-front">
+                        <div class="product-image-container">
+                            <img src="fuel_pump.jpeg" alt="Fuel Pump Housing" class="product-image active" data-alt="fuel_pump2.jpeg">
+                            <img src="fuel_pump2.jpg" alt="Fuel Pump Housing" class="product-image" data-alt="fuel_pump.jpeg">
+                        </div>
+                        <span>Fuel Pump Housing</span>
+                    </div>
+                    <div class="product-card-back">
+                        <div class="product-info">
+                            <h3>Fuel Pump Housing</h3>
+                            <p>Durable fuel pump housings designed for optimal fuel delivery and system protection.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
-                <img src="throttle.jpeg" alt="Throttle Body">
-                <span>Throttle Bodies</span>
+                <div class="product-card-inner">
+                    <div class="product-card-front">
+                        <div class="product-image-container">
+                            <img src="sensors.png" alt="Sensor" class="product-image active" data-alt="sensors2.png">
+                            <img src="sensors2.png" alt="Sensor" class="product-image" data-alt="sensors.png">
+                        </div>
+                        <span>Sensors</span>
+                    </div>
+                    <div class="product-card-back">
+                        <div class="product-info">
+                            <h3>Sensors</h3>
+                            <p>Precision-engineered sensors for accurate engine monitoring and optimal performance.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
-                <img src="spark_plugs.jpeg" alt="Spark Plug">
-                <span>Spark Plugs</span>
+                <div class="product-card-inner">
+                    <div class="product-card-front">
+                        <div class="product-image-container">
+                            <img src="ignition.jpeg" alt="Ignition Module" class="product-image active" data-alt="ignition2.jpeg">
+                            <img src="ignition2.jpg" alt="Ignition Module" class="product-image" data-alt="ignition.jpeg">
+                        </div>
+                        <span>Ignition Modules</span>
+                    </div>
+                    <div class="product-card-back">
+                        <div class="product-info">
+                            <h3>Ignition Modules</h3>
+                            <p>Advanced ignition control modules for precise timing and reliable engine starts.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="product-card">
-                <img src="more.jpeg" alt="And More">
-                <span>And More...</span>
+                <div class="product-card-inner">
+                    <div class="product-card-front">
+                        <div class="product-image-container">
+                            <img src="throttle.jpeg" alt="Throttle Body" class="product-image active" data-alt="throttle2.jpeg">
+                            <img src="throttle2.jpg" alt="Throttle Body" class="product-image" data-alt="throttle.jpeg">
+                        </div>
+                        <span>Throttle Bodies</span>
+                    </div>
+                    <div class="product-card-back">
+                        <div class="product-info">
+                            <h3>Throttle Bodies</h3>
+                            <p>High-quality throttle bodies for smooth air flow control and responsive acceleration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-card-inner">
+                    <div class="product-card-front">
+                        <div class="product-image-container">
+                            <img src="spark_plugs.jpeg" alt="Spark Plug" class="product-image active" data-alt="spark_plugs2.jpeg">
+                            <img src="spark_plug2.jpg" alt="Spark Plug" class="product-image" data-alt="spark_plugs.jpeg">
+                        </div>
+                        <span>Spark Plugs</span>
+                    </div>
+                    <div class="product-card-back">
+                        <div class="product-info">
+                            <h3>Spark Plugs</h3>
+                            <p>Premium spark plugs for efficient combustion and optimal engine performance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-card-inner">
+                    <div class="product-card-front">
+                        <div class="product-image-container">
+                            <img src="more.jpeg" alt="And More" class="product-image active" data-alt="more2.jpeg">
+                            <img src="more2.jpg" alt="And More" class="product-image" data-alt="more.jpeg">
+                        </div>
+                        <span>And More...</span>
+                    </div>
+                    <div class="product-card-back">
+                        <div class="product-info">
+                            <h3>More Products</h3>
+                            <p>Contact us for our complete range of automotive parts and accessories.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1552,7 +1748,7 @@
             });
         });
         // Typewriter effect for .intro
-        const introText = "Get top quality  automotiveparts from KHANYISILE. We specialize in providing reliable and durable components, as well as precision engineering, to keep your engine running smoothly.";
+        const introText = "Get top quality  automotive parts from KHANYISILE. We specialize in providing reliable and durable components, as well as precision engineering, to keep your engine running smoothly.";
         const typewriter = document.getElementById('typewriter');
         let i = 0;
         function typeWriterEffect() {
@@ -1661,6 +1857,44 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
+            });
+        });
+
+        // Product image slideshow
+        function initProductSlideshows() {
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach(card => {
+                const images = card.querySelectorAll('.product-image');
+                let currentIndex = 0;
+                
+                function switchImage() {
+                    // Only switch images if the card is not being hovered
+                    if (!card.matches(':hover')) {
+                        images[currentIndex].classList.remove('active');
+                        currentIndex = (currentIndex + 1) % images.length;
+                        images[currentIndex].classList.add('active');
+                    }
+                }
+                
+                // Switch images every 4-6 seconds
+                setInterval(switchImage, Math.random() * 2000 + 4000);
+            });
+        }
+
+        // Initialize slideshows when the page loads
+        window.addEventListener('load', initProductSlideshows);
+
+        // Pause slideshow on hover
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const images = card.querySelectorAll('.product-image');
+                images.forEach(img => img.style.transition = 'none');
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                const images = card.querySelectorAll('.product-image');
+                images.forEach(img => img.style.transition = 'opacity 1.5s ease-in-out');
             });
         });
     </script>
